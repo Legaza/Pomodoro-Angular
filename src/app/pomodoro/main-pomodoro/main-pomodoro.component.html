@@ -1,0 +1,34 @@
+<div id="app">
+
+    <div id="id">
+        <div id="value"></div>
+        <div id="taskName"></div>
+    </div>
+
+    <div class="form">
+        <form (ngSubmit)="createTask()" id="form">
+            <input 
+            type="text" 
+                placeholder="Tarea" 
+                name="tarea"
+                [(ngModel)]="newTask.title">
+            <input type="submit" id="bAdd" value="Agregar Tarea">
+        </form>
+    </div>
+
+    <div id="task" *ngFor="let tasks of task" >
+        <div class="task" >
+            <div class="task">
+                <div class="completed" *ngIf="tasks.completed; else noCompleto">
+                    <span class="done">Done</span>
+                </div>
+                <ng-template #noCompleto>
+                    <button class="start-button">Start</button>
+                </ng-template>
+                
+                <div class="title">{{tasks.title}}</div>
+            </div>
+        </div>
+    </div>
+
+</div>
